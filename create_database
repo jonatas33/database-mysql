@@ -1,0 +1,53 @@
+
+mysql> create table teste_generation(
+    -> id int,
+    -> nome varchar (50),
+    -> idade int ,
+    -> nota_sem_one float,
+    -> nota_sem_two float ,
+    -> professor varchar (50),
+    -> sala int
+    -> );
+Query OK, 0 rows affected (0.18 sec)
+
+mysql> show tables;
++----------------------+
+| Tables_in_generation |
++----------------------+
+| teste_generation     |
++----------------------+
+1 row in set (0.01 sec)
+
+mysql> select * from teste_generation;
+Empty set (0.03 sec)
+
+mysql> insert into teste_generation(id, nome, idade, nota_sem_one, nota_sem_two, professor, sala) values(
+    -> 1 ,
+    -> "Davyd castro" ,
+    -> 35 ,
+    -> 9,9 ,
+    -> 10 ,
+    -> "Elvis" ,
+    -> 7
+    -> );
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into teste_generation(id, nome, idade, nota_sem_one, nota_sem_two, professor, sala) values(
+    -> 1 ,
+    -> "Davyd castro" ,
+    -> 35 ,
+    -> 9 ,
+    -> 10 ,
+    -> "Elvis" ,
+    -> 7
+    -> );
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from teste_generation;
++------+--------------+-------+--------------+--------------+-----------+------+
+| id   | nome         | idade | nota_sem_one | nota_sem_two | professor | sala |
++------+--------------+-------+--------------+--------------+-----------+------+
+|    1 | Davyd castro |    35 |            9 |           10 | Elvis     |    7 |
++------+--------------+-------+--------------+--------------+-----------+------+
+1 row in set (0.00 sec)
+
+mysql>
